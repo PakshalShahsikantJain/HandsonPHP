@@ -16,7 +16,7 @@
         $i = 0;
         $Sum = 0;
         
-        echo "Printing Below Pattern<br>";
+        echo "Printing Given Pattern<br>";
         
         //Logic To Print Given Pattern
         for($i = 0;$i < $No;$i++)
