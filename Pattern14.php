@@ -1,4 +1,15 @@
 <?php
+    /*
+        Author : Pakshal Shashikant Jain 
+        Date : 05/03/2023
+        Program : To Print Below Given Pattern 
+        Input : iRow = 4 iCol = 4
+        Output : A B C D
+                a b c d
+                A B C D
+                a b c d 
+
+    */
     //Function To Print Pattern
     function Pattern($No,$No2) 
     {
