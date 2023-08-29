@@ -1,0 +1,84 @@
+<?php
+    /*
+        Author : Pakshal Shashikant Jain
+        Date : 29/08/2023
+        Program : Write a program which accept string from user and copy that
+                characters of that string into another string by toggling the case.
+
+                Input : "Marvellous Python 2"
+                Output : "mARVELLOUS pYTHON 2"  
+    */
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Class Declaration
+    class CopyString
+    {
+        //Characteristics of Class
+        public $str;
+        public $src;
+        public $dest;
+
+        //Constructor of Class
+        public function __construct()
+        {
+            $this->str = " ";
+            $this->src = [];
+            $this->dest = [];
+        }
+
+        //Behaviour of Class To Take input from user
+        public function Accept()
+        {
+            $this->str = "Marvellous Multi OS";
+            $this->src = str_split($this->str);
+        }
+
+        //Behaviour of Class To Copy String into Another String After Toggling Case 
+        public function StrCpyToggle()
+        {
+            $i = 0;
+            $ascii = 0;
+
+            //Logic To Copy
+            while($i != sizeof($this->src)) 
+            {
+                if(($this->src[$i] >= 'A')&&($this->src[$i] <= 'Z'))
+                {
+                    $ascii = ord($this->src[$i]) + 32;
+                    $this->src[$i] = chr($ascii);
+                }
+                else if(($this->src[$i] >= 'a')&&($this->src[$i] <= 'z'))
+                {
+                    $ascii = ord($this->src[$i]) - 32;
+                    $this->src[$i] = chr($ascii);
+                }
+
+                $this->dest[$i] = $this->src[$i];
+                $i++;
+            }
+        }
+    }
+    
+    //Main Function
+    function main()
+    {
+        echo "Jay Ganesh...<br>";
+
+        //Creating object of CopyString Class
+        $cobj  = new CopyString();
+
+        //Call To Behaviours of Class
+        $cobj->Accept();
+        $cobj->StrCpyToggle();
+
+        //Printing Copied String 
+        printf("Copied String is : %s",implode($cobj->dest));
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Call to Main Function
+    main();
+?>
