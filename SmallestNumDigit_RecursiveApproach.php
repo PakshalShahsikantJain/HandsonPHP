@@ -1,34 +1,45 @@
 <?php
     /*
         Author : Pakshal Shashikant Jain 
-        Date : 11/5/2024
+        Date : 14/5/2024
         Program : Write a recursive program which accept number from user and return
-                largest digit
+                  smallest digit
 
-                Input : 87983
-                Output : 9   
+                  Input : 87983
+                  Output : 3  
     */
 
-    //Function To Find Largest Digits
-    function MaxDigit($ino)
+    //Function To Find Smallest Digits
+    function MinDigit($ino)
     {
-        static $imax = 0;
+        static $imin = 0;
         $Digit = 0;
 
-        $Digit = $ino % 10;
-        if($imax < $Digit)
+        if($imin == 0)
         {
-            $imax = $Digit;
+            $imin = $ino % 10;
+            $ino = floor($ino / 10);
+        }
+
+        $Digit = $ino % 10;
+        if($Digit == 0)
+        {
+            $imin = 0;
+            return $imin;
+        }
+        else if($Digit < $imin)
+        {
+            $imin = $Digit;
         }
         $ino = floor($ino / 10);
 
         if($ino != 0)
         {
-            //Recursive Function Call To Max Function
-            MaxDigit($ino);
+            //Recursive Function Call To Min Function
+            MinDigit($ino);
         }
         
-        return $imax;
+        return $imin;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,16 +47,16 @@
     //Main Function
     function main()
     {
-        $ino = 8789;
+        $ino = 8289;
         $iret = 0;
 
         echo"Jay Ganesh....<br>";
         
-        //Call To MaxDigits Function
-        $iret = MaxDigit($ino);
+        //Call To MinDigits Function
+        $iret = MinDigit($ino);
 
         //Printing Larget Digit Found
-        printf("Largest Digit Present in Entered Number %d is : %d",$ino,$iret);
+        printf("Smallest Digit Present in Entered Number %d is : %d",$ino,$iret);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
