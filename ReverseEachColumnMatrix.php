@@ -2,20 +2,20 @@
     /*
         Author : Pakshal Shashikant Jain 
         Date : 7/08/2024
-        Program : Write a program which accept matrix and reverse the contents of each row. 
+        Program : Write a program which accept matrix and reverse the contents of each column. 
     */
 
-    //Function to Reverse each row of the matrix 
-    function ReverseRow($arr,$row,$col)
+    //Function to Reverse each columns of the matrix 
+    function ReverseColumns($arr,$row,$col)
     {
         $i = 0;
         $j = 0;
       
-        //Logic to Reverse each row of the matrix 
+        //Logic to Reverse each columns of the matrix 
         echo "Updated matrix is as follows : <br>";
-        for($i = 0;$i < $row;$i++)
+        for($i = $row - 1;$i > -1;$i--)
         {
-            for($j = $col - 1;$j > -1;$j--)
+            for($j =  0;$j < $col;$j++)
             {
                 printf("%d &nbsp;&nbsp;",$arr[$i][$j]);
             }
@@ -62,8 +62,8 @@
             echo "<br>";
         }
     
-        //Call to ReverseRow function
-        ReverseRow($arr,$row,$col);
+        //Call to ReverseColumns function
+        ReverseColumns($arr,$row,$col);
     }
 
     //Call to main function
